@@ -1,0 +1,412 @@
+
+@font-face {
+    font-family: "Pencil";
+    src: url(../fonts/QuickPencil-Regular.ttf);
+}
+
+:root {
+    /* Colores principales */
+    --color-negro: #000000;
+    --color-blanco: #ffffff;
+    --color-transparente-negro: rgba(0, 0, 0, 0.9);
+    --color-rojo-destacado: #ff4444;
+
+    /* Colores de fondo */
+    --bg-gris: #6e6e6c;
+    --bg-claro: #f7f7f731;
+
+    /* Bordes */
+    --borde-gris: #707070;
+}
+
+
+
+body {
+    font-family: 'Courier New', monospace;
+    background-image: url(../images/paper6.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--color-negro);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+main {
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: "Pencil", sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--color-negro);
+}
+/* Navbar */
+.navbar {
+    z-index: 12;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-transparente-negro);
+    color: var(--color-blanco);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    z-index: 20; /* Asegúrate de que este valor sea mayor que el de otros elementos */
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: fixed;
+    top: 1rem; /* Ajusta según sea necesario */
+    right: 1rem; /* Ajusta según sea necesario */
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-blanco);
+    transition: all 0.3s ease;
+}
+
+/* Menu links */
+.nav-links {
+    list-style: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 150px;
+    height: 100vh;
+    background-color: var(--color-transparente-negro);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: right 0.3s ease;
+    z-index: 12;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-blanco);
+    font-size: 1.2rem;
+    z-index: 12;
+}
+
+/* Mostrar el menú al activar el checkbox */
+.menu-toggle:checked ~ .nav-links {
+    right: 0;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--color-blanco);
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-toggle:checked ~ .close-btn {
+    display: block;
+}
+
+.close-btn:hover {
+    color: var(--color-rojo-destacado);
+}
+
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+  /* Hero Section */
+.typewriter {
+    font-family: 'Pencil', monospace;
+    display: inline-block;
+    overflow: hidden;
+    border-right: 0.15em solid #333;
+    white-space: nowrap;
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #333; }
+}
+
+.hero {
+    text-align: center;
+    padding: 50px;
+    position: relative; /* Esto permite que la imagen se posicione respecto al contenedor */
+}
+
+
+.hero h1 {
+    font-family: "Pencil", sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 0;
+    display: inline-block;
+    overflow: hidden;
+    border-right: 0.15em solid #333;
+    white-space: nowrap;
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    font-style: italic;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    animation: fadeIn 0.8s ease-out forwards;
+    z-index: 2;
+}
+
+.cta {
+    font-family: "Pencil", sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 5;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    transition-delay: 0.8s;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+  /* About Section */
+.about .info {
+    display: flex;
+    align-items: center;
+
+}
+
+.photo img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.details p {
+    margin: 5px 0;
+}
+
+  /* Skills Section */
+.skills .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+
+.info-grid .info-item {
+    background-color: var(--bg-claro);
+    padding: 10px;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.info-grid .info-skill {
+    background-color: var(--bg-claro);
+    border: 1px dashed var(--color-negro);
+    font-size: 0.9em;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+    max-width: 100px;
+    max-height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.skill-text {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+
+  /* Footer */
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: #000000;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+footer label{
+    color: black;
+}
+
+.contact-form {
+    margin-top: 20px;
+}
+
+.contact-form h3 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-family: "Pencil", sans-serif;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    max-width: 300px;
+    border: 1px dashed var(--color-negro);
+    border-radius: 5px;
+    background-color: var(--bg-claro);
+    color: var(--color-negro);
+    font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #707070;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #8a682000;
+    color: var(--color-negro);
+    border: 1px dashed var(--color-negro);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.contact-form button:hover {
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-link {
+    margin: 0 10px;
+}
+
+
+
+@media (max-width: 768px) {
+    .skills .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hamburger {
+        display: flex;
+    }
+    .nav-links {
+        position: fixed;
+    }
+}
+@media (min-width: 769px) {
+    .nav-links {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        height: auto;
+        width: auto;
+        background-color: transparent;
+    }
+    .hamburger {
+        display: none;
+    }
+    .navbar {
+        padding: 0.5rem 2rem; /* Reduce el padding para hacerla más compacta */
+        height: 3rem;
+    }
+
+    .nav-links {
+        height: auto; /* Asegúrate de que no esté forzando un alto adicional */
+        gap: 1.5rem; /* Ajusta el espacio entre enlaces si es necesario */
+    }
+}
+@media (max-width: 500px) {
+    .about .info {
+        flex-direction: column;
+    }
+
+    .photo img {
+        width: 200px;
+        height: auto;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
