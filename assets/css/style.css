@@ -405,30 +405,3 @@ footer label{
 }
 
 
-/* Animación para el fade-in de los elementos */
-.hero, .about, .skills, .education {
-    opacity: 0;
-    transform: translateY(20px); /* Inicia un poco hacia abajo */
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-.hero.visible, .about.visible, .skills.visible, .education.visible {
-    opacity: 1;
-    transform: translateY(0); /* Vuelve a la posición original */
-}
-
-
-.navbar {
-    transition: transform 0.5s ease;
-}
-
-.navbar.open {
-    transform: translateX(0);
-}
-
-.navbar.close {
-    transform: translateX(-100%);
-}
-
-
-
