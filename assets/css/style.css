@@ -46,6 +46,11 @@ h1 {
     font-weight: bold;
 }
 
+#saludo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
 h2 {
     font-family: "Pencil", sans-serif;
     font-weight: 400;
@@ -148,24 +153,14 @@ section {
 }
 
   /* Hero Section */
-.typewriter {
+.tittle {
     font-family: 'Pencil', monospace;
     display: inline-block;
     overflow: hidden;
     border-right: 0.15em solid #333;
     white-space: nowrap;
-    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
 }
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #333; }
-}
 
 .hero {
     text-align: center;
@@ -408,5 +403,32 @@ footer label{
         font-size: 1.5rem;
     }
 }
+
+
+/* Animación para el fade-in de los elementos */
+.hero, .about, .skills, .education {
+    opacity: 0;
+    transform: translateY(20px); /* Inicia un poco hacia abajo */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero.visible, .about.visible, .skills.visible, .education.visible {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a la posición original */
+}
+
+
+.navbar {
+    transition: transform 0.5s ease;
+}
+
+.navbar.open {
+    transform: translateX(0);
+}
+
+.navbar.close {
+    transform: translateX(-100%);
+}
+
 
 
